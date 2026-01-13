@@ -55,6 +55,9 @@ header {
   width: 100%;
   background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
   border-bottom: var(--borders);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav {
@@ -80,7 +83,7 @@ nav a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--font-reg);
 }
 
 nav a:hover {
@@ -111,6 +114,7 @@ nav li {
 }
 
 .btn {
+  display: inline-block;
   font-size: var(--font-l);
   padding: 8px 16px;
   border-radius: 6px;
@@ -168,10 +172,8 @@ nav li {
 
 @media only screen and (min-width: 768px) {
   header {
-    position: sticky;
     display: flex;
     flex-direction: row;
-    top: 0;
     align-items: center;
   }
 
