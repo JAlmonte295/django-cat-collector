@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.Home.as_view(), name='home'),
     path('about/', views.about, name='about'),
     path('cats/', views.cat_index, name='cat-index'),
     # new route below
@@ -16,4 +16,9 @@ urlpatterns = [
     path('toys/', views.ToyList.as_view(), name='toy-index'),
     path('toys/<int:pk>/delete/', views.ToyDelete.as_view(), name='toy-delete'),
     path('toys/<int:pk>/update/', views.ToyUpdate.as_view(), name='toy-update'),
+    path('cats/<int:cat_id>/assoc_toy/<int:toy_id>/', views.associated_toy, name='assoc-toy'),
+    path('cats/<int:cat_id>/unassoc_toy/<int:toy_id>/', views.unassociated_toy, name='unassoc-toy'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', views.signup, name='signup'),
+
 ]
